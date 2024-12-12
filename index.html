@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sozlamalar Sayti</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+  <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+#settingsPanel {
+    position: fixed;
+    top: 0;
+    right: -9900px;
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+}
+
+#settingsPanel.open {
+    right: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="color"],
+input[type="range"] {
+    width: 100%;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: end;
+}
+
+.bars i {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    font-size: 20px;
+    animation: anim 2.5s linear infinite;
+}
+
+#closeBtn {
+    background-color: rgba(74, 74, 74, 0.441);
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
+.b1r {
+    display: flex;
+    justify-content: space-between;
+}
+
+#closeBtn i {
+    transform: rotate(45deg);
+    font-size: 20px;
+}
+
+.bars {
+    background-color: rgba(74, 74, 74, 0.441);
+    width: 35px;
+    height: 35px;
+    margin-top: 128px;
+    border-radius: 5px 0px 0px 5px;
+    position: fixed;
+    z-index: 998;
+}
+
+@keyframes anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.header {
+    background: #0078d7;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.slide-in {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn {
+    width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (width < 703px) {
+    .b2r {
+        display: flex;
+        flex-direction: column;
+    }
+    .ism input {
+        width: 300px;
+    }
+    textarea {
+        width: 300px;
+    }
+}
+  </style>
+
+  <div id="navbar">
+    <div id="bars" class="bars"><i class="ri-settings-2-line"></i></div>
+  </div>
+
+  <div id="settingsPanel">
+    <div class="b1r">
+      <h2>Sozlamalar</h2>
+      <button id="closeBtn"><i class="ri-xrp-line"></i></button>
+    </div>
+    <label for="bgColor">Orqa fon rangini o'zgartirish:</label>
+    <input type="color" id="bgColor">
+    <br><br>
+    <label for="textColor">Matn rangini o'zgartirish:</label>
+    <input type="color" id="textColor">
+    <br><br>
+    <label for="fontSize">Matn o'lchami:</label>
+    <input type="range" id="fontSize" min="12" max="48" value="16">
+  </div>
+
+  <header class="header">
+    <h1 class="fade-in text">Xush Kelibsiz</h1>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#home">Bosh sahifa</a></li>
+        <li><a href="#about">Haqida</a></li>
+        <li><a href="#contact">Aloqa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="home-section slide-in text">
+      <h2>Bosh Sahifa</h2>
+      <p>Bu sayt oddiy ma'lumotlarni taqdim etish uchun yaratilgan.</p>
+    </section>
+    <section id="about" class="about-section slide-in text">
+      <h2>Haqida</h2>
+      <p>Sayt foydalanuvchilarga qulaylik yaratish maqsadida ishlab chiqilgan.</p>
+    </section>
+    <section id="contact" class="contact-section slide-in text">
+      <h2>Aloqa</h2>
+      <form>
+        <label for="name">Ismingiz:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Xabar:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button class="btn" type="submit">Jo'natish</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const bars = document.getElementById('bars');
+    const settingsPanel = document.getElementById('settingsPanel');
+    const closeBtn = document.getElementById('closeBtn');
+    const bgColorInput = document.getElementById('bgColor');
+    const textColorInput = document.getElementById('textColor');
+    const fontSizeInput = document.getElementById('fontSize');
+
+    bars.addEventListener('click', () => {
+      settingsPanel.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      settingsPanel.classList.remove('open');
+    });
+
+    bgColorInput.addEventListener('input', (e) => {
+      document.body.style.backgroundColor = e.target.value;
+    });
+
+    textColorInput.addEventListener('input', (e) => {
+      const textElements = document.querySelectorAll('.text');
+      textElements.forEach((el) => {
+        el.style.color = e.target.value;
+      });
+    });
+
+    fontSizeInput.addEventListener('input', (e) => {
+      const textElements = document.querySelectorAll('.text');
+      textElements.forEach((el) => {
+        el.style.fontSize = `${e.target.value}px`;
+      });
+    });
+  </script>
+</body>
+</html>
